@@ -1,6 +1,6 @@
 const statement = require('../src/chapter01/theatrical_players');
 const plays = require('../src/chapter01/plays.json');
-const invoices = require('../src/chapter01/invoices.json');
+const invoice = require('../src/chapter01/invoices.json');
 
 describe('statement', () => {
 
@@ -13,7 +13,7 @@ describe('statement', () => {
             "Amount owed is $1,730.00\n" +
             "You earned 47 credits\n";
 
-        const result = statement(invoices, plays);
+        const result = statement(invoice, plays);
 
         expect(result).toBe(expectedStatement);
     });
@@ -25,7 +25,7 @@ describe('statement', () => {
         };
 
         expect(() => {
-            statement(invoices, invalidPlays);
+            statement(invoice, invalidPlays);
         }).toThrow('unknown type: unknownType');
     });
 });
