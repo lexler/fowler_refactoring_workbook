@@ -1,3 +1,7 @@
+function statement(invoice, plays) {
+    return renderPlainText(invoice, plays);
+}
+
 function renderPlainText(invoice, plays) {
     let result = `Statement for ${invoice.customer}\n`;
 
@@ -67,10 +71,6 @@ function renderPlainText(invoice, plays) {
         }
         return result;
     }
-}
-
-function statement(invoice, plays) {
-    return renderPlainText(invoice, plays);
 }
 
 module.exports = statement;
