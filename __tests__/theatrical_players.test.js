@@ -1,4 +1,4 @@
-const statement = require('../src/chapter01/code');
+const statement = require('../src/chapter01/theatrical_players');
 const plays = require('../src/chapter01/plays.json');
 const invoices = require('../src/chapter01/invoices.json');
 
