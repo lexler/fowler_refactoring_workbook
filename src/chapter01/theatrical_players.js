@@ -2,11 +2,17 @@ function statement(invoice, plays) {
     const statementData = {};
     statementData.customer = invoice.customer;
     statementData.performances = invoice.performances.map(enrichPerformance);
+    console.log(JSON.stringify(statementData, null, 2));
     return renderPlainText(statementData, plays);
 
     function enrichPerformance(aPerformance) {
         const result = Object.assign({}, aPerformance);
+        result.play = playFor(result);
         return result;
+    }
+
+    function playFor(aPerformance) {
+        return plays[aPerformance.playID];
     }
 }
 
