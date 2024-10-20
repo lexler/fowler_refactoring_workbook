@@ -2,7 +2,7 @@ function statement(invoice, plays) {
     const statementData = {};
     statementData.customer = invoice.customer;
     statementData.performances = invoice.performances.map(enrichPerformance);
-    console.log(JSON.stringify(statementData, null, 2));
+    // console.log(JSON.stringify(statementData, null, 2));
     return renderPlainText(statementData, plays);
 
     function enrichPerformance(aPerformance) {
@@ -21,7 +21,7 @@ function renderPlainText(data, plays) {
 
     for (let perf of data.performances) {
         // print line for this order
-        result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
+        result += ` ${perf.play.name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
     }
 
     result += `Amount owed is ${usd(totalAmount())}\n`;
@@ -45,7 +45,7 @@ function renderPlainText(data, plays) {
                 result += 300 * aPerformance.audience;
                 break;
             default:
-                throw new Error(`unknown type: ${playFor(aPerformance).type}`)
+                throw new Error(`unknown type: ${aPerformance.play.type}`)
         }
         return result;
     }
@@ -57,7 +57,7 @@ function renderPlainText(data, plays) {
     function volumeCreditsFor(aPerformance) {
         let result = 0;
         result += Math.max(aPerformance.audience - 30, 0);
-        if ("comedy" === playFor(aPerformance).type) result += Math.floor(aPerformance.audience / 5);
+        if ("comedy" === aPerformance.play.type) result += Math.floor(aPerformance.audience / 5);
         return result;
     }
 
