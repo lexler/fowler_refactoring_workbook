@@ -1,11 +1,11 @@
 function createStatementData(invoice, plays) {
-    const statementData = {};
-    statementData.customer = invoice.customer;
-    statementData.performances = invoice.performances.map(enrichPerformance);
-    statementData.totalAmount = totalAmount(statementData);
-    statementData.totalVolumeCredits = totalVolumeCredits(statementData);
-    console.log(JSON.stringify(statementData, null, 2));
-    return statementData;
+    const result = {};
+    result.customer = invoice.customer;
+    result.performances = invoice.performances.map(enrichPerformance);
+    result.totalAmount = totalAmount(result);
+    result.totalVolumeCredits = totalVolumeCredits(result);
+    console.log(JSON.stringify(result, null, 2));
+    return result;
 
     function enrichPerformance(aPerformance) {
         const result = Object.assign({}, aPerformance);
