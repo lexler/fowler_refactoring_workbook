@@ -1,10 +1,3 @@
-// const orderString = ""
-// const priceList = []
-//
-// const orderData = orderString.split(/\s+/)
-// const productPrice = priceList[orderData[0].split("-")[1]]
-// const orderPrice = parseInt(orderData[1]) * productPrice
-
 // product = {
 //     "basePrice": 10,
 //     "discountRate": 2,
@@ -42,6 +35,3 @@ function applyShipping(priceData, shippingMethod) {
 }
 
 module.exports = { priceOrder };
-
-// result = priceOrder(product, 100, shippingMethod)
-// console.log(result);
