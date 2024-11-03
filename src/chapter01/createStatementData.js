@@ -25,6 +25,13 @@ class PerformanceCalculator {
         }
         return result;
     }
+
+    get volumeCredits() {
+        let result = 0;
+        result += Math.max(this.performance.audience - 30, 0);
+        if ("comedy" === aPerformance.play.type) result += Math.floor(this.performance.audience / 5);
+        return result;
+    }
 }
 
 function createStatementData(invoice, plays) {
